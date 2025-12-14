@@ -38,10 +38,10 @@ public class L20231234_6_Test {
         input.add(user3);
         input.add(user4);
 
-        // 🔥 核心改动：故意写错预期结果（正确应为[0,1,4]，改为[0,2,4]）
+        // 2. 定义预期结果（显式指定泛型类型）
         List<Integer> expected = new ArrayList<Integer>() {{
             add(0);
-            add(2);  // 错误值：原正确是1，改为2
+            add(1);
             add(4);
         }};
 
@@ -59,7 +59,7 @@ public class L20231234_6_Test {
         System.out.println("实际结果（不被任何用户包含的索引）：" + actual);
         System.out.println(SEPARATOR);
 
-        // 5. 断言验证（必然失败）
+        // 5. 断言验证
         assertEquals("testExample1 测试失败！", expected, actual);
     }
 
@@ -72,9 +72,9 @@ public class L20231234_6_Test {
         }};
         input.add(user0);
 
-        // 🔥 核心改动：故意写错预期结果（正确应为[0]，改为[1]）
+        // 2. 定义预期结果（显式指定泛型类型）
         List<Integer> expected = new ArrayList<Integer>() {{
-            add(1);  // 错误值：原正确是0，改为1
+            add(0);
         }};
 
         // 3. 执行方法获取实际结果
@@ -91,7 +91,7 @@ public class L20231234_6_Test {
         System.out.println("实际结果（不被任何用户包含的索引）：" + actual);
         System.out.println(SEPARATOR);
 
-        // 5. 断言验证（必然失败）
+        // 5. 断言验证
         assertEquals("testSingleUser 测试失败！", expected, actual);
     }
 
@@ -112,9 +112,9 @@ public class L20231234_6_Test {
             add("c");
         }}); // 用户2
 
-        // 🔥 核心改动：故意写错预期结果（正确应为[2]，改为[0]）
+        // 预期结果：显式指定泛型类型
         List<Integer> expected = new ArrayList<Integer>() {{
-            add(0);  // 错误值：原正确是2，改为0
+            add(2);
         }};
         List<Integer> actual = solution6.peopleIndexes(input);
 
